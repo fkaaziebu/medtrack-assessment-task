@@ -26,7 +26,7 @@ const Dialog = (props: DialogProps) => {
             'absolute left-[20%] z-30 h-screen w-[80%] bg-zinc-900/80'
           )}
         >
-          <div className='no-scrollbar flex h-full w-full items-center justify-center overflow-y-auto text-white'>
+          <div className='no-scrollbar h-[calc(100%)] overflow-y-auto py-20 text-white'>
             {props.children}
           </div>
         </div>
@@ -46,7 +46,7 @@ interface DialogContentProps {
 
 const DialogContent = (props: DialogContentProps) => {
   return (
-    <div className='mb-16 flex h-[135%] w-full items-end justify-center'>
+    <div className='flex items-center justify-center'>
       <div
         onClick={(e) => {
           e.stopPropagation();
