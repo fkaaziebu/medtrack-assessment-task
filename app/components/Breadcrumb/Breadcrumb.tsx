@@ -1,5 +1,6 @@
 'use client';
-import { HomeIcon } from '@heroicons/react/24/outline';
+import Image from 'next/image';
+import HomeIcon from '@/public/home-line.svg';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -28,7 +29,11 @@ export default function Sidebar() {
   return (
     <div className='flex h-10 items-center gap-3 rounded-lg border border-[#d0d5e2] bg-white px-3 py-1'>
       <Link href={'/'}>
-        <HomeIcon className='h-5 w-5 text-[#7a7d7f]' />
+        <Image
+          src={HomeIcon}
+          alt='Back to Home'
+          className='h-3 w-3 text-[#7a7d7f] sm:h-5 sm:w-5'
+        />
       </Link>
       {paths.map((path, idx) => {
         return (
@@ -36,13 +41,15 @@ export default function Sidebar() {
             {path === '' ? (
               ''
             ) : (
-              <span className='text-xs font-bold text-[#d0d5e2]'>/</span>
+              <span className='text-[0.5rem] font-bold text-[#d0d5e2] sm:text-xs'>
+                /
+              </span>
             )}
             {path === '' ? (
               ''
             ) : (
               <Link href={`/${generateUrl(idx)}`}>
-                <span className='text-base text-[#7a7d7f]'>
+                <span className='text-xs text-[#7a7d7f] sm:text-base'>
                   {path.split('-').map((word) => {
                     return ' ' + word.charAt(0).toUpperCase() + word.slice(1);
                   })}

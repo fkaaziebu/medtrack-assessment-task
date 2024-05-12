@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="98px" height="82px" viewBox="0 0 98 82" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>State Icon History</title>
+    <defs>
+        <filter x="-3.5%" y="-4.4%" width="107.0%" height="108.8%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="0.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.109803922   0 0 0 0 0.188235294   0 0 0 0 0.266666667  0 0 0 0.1 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <circle id="path-2" cx="22" cy="29" r="5"></circle>
+        <filter x="-15.0%" y="-15.0%" width="130.0%" height="130.0%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="0.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.109803922   0 0 0 0 0.188235294   0 0 0 0 0.266666667  0 0 0 0.1 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <path d="M21.5,36 C25.6421356,36 29,39.3578644 29,43.5 L29,47 L29,47 L14,47 L14,43.5 C14,39.3578644 17.3578644,36 21.5,36 Z" id="path-4"></path>
+        <filter x="-10.0%" y="-13.6%" width="120.0%" height="127.3%" filterUnits="objectBoundingBox" id="filter-5">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="0.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.109803922   0 0 0 0 0.188235294   0 0 0 0 0.266666667  0 0 0 0.1 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="UI-Mobile" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="05-Visits/History-Empty-State" transform="translate(-166.000000, -345.000000)">
+            <g id="State-Icon-History" transform="translate(166.000000, 345.000000)">
+                <circle id="Oval-Copy-2" fill="#DDE3EB" cx="41" cy="41" r="41"></circle>
+                <g id="app-icon" filter="url(#filter-1)" transform="translate(25.000000, 12.000000)">
+                    <rect id="Rectangle" fill="#F0F3F7" x="4" y="4" width="64" height="53" rx="2"></rect>
+                    <path d="M0,10 L71,10 L71,50 C71,51.6568542 69.6568542,53 68,53 L3,53 C1.34314575,53 2.02906125e-16,51.6568542 0,50 L0,10 L0,10 Z" id="Rectangle" fill="#FFFFFF"></path>
+                    <path d="M3,0 L68,0 C69.6568542,-3.04359188e-16 71,1.34314575 71,3 L71,10 L71,10 L0,10 L0,3 C-2.02906125e-16,1.34314575 1.34314575,3.04359188e-16 3,0 Z" id="Rectangle" fill="#F6F8FB"></path>
+                    <rect id="Rectangle" fill="#DDE3EB" x="6" y="16" width="31" height="31" rx="1.5"></rect>
+                    <g id="Oval">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-2"></use>
+                        <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-2"></use>
+                    </g>
+                    <g id="Rectangle">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-5)" xlink:href="#path-4"></use>
+                        <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-4"></use>
+                    </g>
+                    <rect id="Rectangle-Copy" fill="#F6F8FB" x="41" y="16" width="24" height="10" rx="1.5"></rect>
+                    <rect id="Rectangle-Copy-2" fill="#DDE3EB" x="41" y="28" width="24" height="2" rx="1"></rect>
+                    <rect id="Rectangle-Copy-3" fill="#DDE3EB" x="41" y="32" width="24" height="2" rx="1"></rect>
+                    <rect id="Rectangle-Copy-4" fill="#DDE3EB" x="41" y="36" width="16" height="2" rx="1"></rect>
+                    <rect id="Rectangle-Copy-5" fill="#DDE3EB" x="41" y="40" width="16" height="2" rx="1"></rect>
+                    <g id="Indicator-Wrapper" transform="translate(46.000000, 18.000000)">
+                        <circle id="Indicator" fill="#FFC742" cx="3" cy="3" r="3"></circle>
+                        <circle id="Indicator" fill="#00B066" cx="11" cy="3" r="3"></circle>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

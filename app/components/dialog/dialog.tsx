@@ -1,7 +1,8 @@
 'use client';
 
 import { cn } from '@/lib/utils';
-import { XMarkIcon } from '@heroicons/react/24/outline';
+import XMarkIcon from '@/public/x-close.svg';
+import Image from 'next/image';
 import React from 'react';
 
 let onOpenChange: any;
@@ -23,7 +24,7 @@ const Dialog = (props: DialogProps) => {
             props.onOpenChange();
           }}
           className={cn(
-            'absolute left-[20%] z-30 h-screen w-[80%] bg-zinc-900/80'
+            'absolute z-30 h-screen w-full bg-zinc-900/80 lg:left-[22%] xl:left-[20%] lg:w-[80%]'
           )}
         >
           <div className='no-scrollbar h-[calc(100%)] overflow-y-auto py-20 text-white'>
@@ -52,7 +53,7 @@ const DialogContent = (props: DialogContentProps) => {
           e.stopPropagation();
         }}
         className={cn(
-          'relative flex min-h-[70%] min-w-[55%] max-w-[55%] flex-col rounded-xl bg-white',
+          'relative flex min-h-[70%] min-w-[90%] xl:min-w-[55%] max-w-[55%] flex-col rounded-xl bg-white',
           props.className
         )}
       >
@@ -75,7 +76,7 @@ const DialogHeader = (props: DialogContentProps) => {
         onClick={() => onOpenChange()}
         className='absolute right-4 top-4 cursor-pointer rounded-full border border-[#d0d5e2] bg-white p-1'
       >
-        <XMarkIcon className='h-5 w-5 text-[#182430]' />
+        <Image src={XMarkIcon} alt='Close' className='h-5 w-5 text-[#182430]' />
       </div>
     </div>
   );

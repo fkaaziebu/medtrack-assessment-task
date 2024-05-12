@@ -29,7 +29,9 @@ export const VitalsModal = () => {
           <div
             style={{
               backgroundImage:
-                'linear-gradient(rgb(246 248 251 / 96%), rgba(246, 248, 251, .96)), url("/png-transparent-diagonal-lines-pattern-p-130x130q80.png")',
+                'linear-gradient(rgb(246 248 251 / 96%), rgba(246, 248, 251, .96)), url("/png-transparent-diagonal-lines-pattern.png")',
+              backgroundPosition: '0 0, 0 0',
+              backgroundSize: 'auto, 240px',
             }}
             className='flex min-h-full w-[20%] flex-col gap-0.5 p-8 text-xs'
           >

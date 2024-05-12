@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="125px" height="97px" viewBox="0 0 125 97" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>State Icon Prescription</title>
+    <defs>
+        <rect id="path-1" x="19" y="0" width="104" height="29" rx="4"></rect>
+        <filter x="-1.9%" y="-3.4%" width="103.8%" height="113.8%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="0.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.109803922   0 0 0 0 0.188235294   0 0 0 0 0.266666667  0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <rect id="path-3" x="19" y="66" width="104" height="29" rx="4"></rect>
+        <filter x="-1.9%" y="-3.4%" width="103.8%" height="113.8%" filterUnits="objectBoundingBox" id="filter-4">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="0.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.109803922   0 0 0 0 0.188235294   0 0 0 0 0.266666667  0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <rect id="path-5" x="0" y="33" width="104" height="29" rx="4"></rect>
+        <filter x="-1.9%" y="-3.4%" width="103.8%" height="113.8%" filterUnits="objectBoundingBox" id="filter-6">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="0.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.109803922   0 0 0 0 0.188235294   0 0 0 0 0.266666667  0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="UI-Mobile" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="04-Prescriptions/Empty-State" transform="translate(-144.000000, -279.000000)">
+            <g id="State-Icon-Prescription" transform="translate(145.000000, 279.000000)">
+                <g id="Rectangle">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                </g>
+                <g id="Rectangle-Copy-4">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-4)" xlink:href="#path-3"></use>
+                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-3"></use>
+                </g>
+                <g id="Rectangle-Copy">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-6)" xlink:href="#path-5"></use>
+                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-5"></use>
+                </g>
+                <rect id="Rectangle" stroke="#E0EAF4" fill="#F6F8FB" x="37" y="3" width="83" height="23" rx="2"></rect>
+                <rect id="Rectangle-Copy-5" stroke="#E0EAF4" fill="#F6F8FB" x="37" y="69" width="83" height="23" rx="2"></rect>
+                <rect id="Rectangle-Copy-2" stroke="#E0EAF4" fill="#F6F8FB" x="18" y="36" width="83" height="23" rx="2"></rect>
+                <rect id="Rectangle" fill="#EBA737" x="25.9488636" y="3.17045455" width="7.55869958" height="6.34090909" rx="3.17045455"></rect>
+                <rect id="Rectangle-Copy-6" fill="#3952A6" x="25.9488636" y="69.1704545" width="7.55869958" height="6.34090909" rx="3.17045455"></rect>
+                <rect id="Rectangle-Copy-3" fill="#00B066" x="6.94886364" y="36.1704545" width="7.55869958" height="6.34090909" rx="3.17045455"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

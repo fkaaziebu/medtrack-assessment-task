@@ -1,6 +1,7 @@
 'use client';
 
 import { useModal } from '@/app/hooks/use-modal-store';
+import Image from 'next/image';
 
 import {
   Dialog,
@@ -9,7 +10,8 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/app/components/dialog/dialog';
-import { BoltIcon, NewspaperIcon } from '@heroicons/react/24/outline';
+import FileIcon from '@/public/ic-file-attachment.svg';
+import CarePlanIcon from '@/public/ic-careplan.svg';
 
 export const DiagnosticModal = () => {
   const { isOpen, onClose, type } = useModal();
@@ -29,7 +31,9 @@ export const DiagnosticModal = () => {
           <div
             style={{
               backgroundImage:
-                'linear-gradient(rgb(246 248 251 / 96%), rgba(246, 248, 251, .96)), url("/png-transparent-diagonal-lines-pattern-p-130x130q80.png")',
+                'linear-gradient(rgb(246 248 251 / 96%), rgba(246, 248, 251, .96)), url("/png-transparent-diagonal-lines-pattern.png")',
+              backgroundPosition: '0 0, 0 0',
+              backgroundSize: 'auto, 240px',
             }}
             className='flex min-h-full w-[20%] flex-col gap-0.5 p-8 text-xs'
           >
@@ -75,7 +79,11 @@ export const DiagnosticModal = () => {
                 <div className='flex flex-wrap items-start gap-2'>
                   <div className='flex w-full items-center gap-2 rounded-md border border-[#f6f8fb] bg-[#f6f8fb] px-3 py-2 hover:border-[#d0d5e2]'>
                     <div className='flex items-center justify-center rounded-md border border-[#d0d5e2] bg-white p-2'>
-                      <NewspaperIcon className='h-6 w-6 text-[#7a7d7f]' />
+                      <Image
+                        src={FileIcon}
+                        alt='File'
+                        className='h-6 w-6 text-[#7a7d7f]'
+                      />
                     </div>
                     <div className='flex flex-col gap-1 text-xs'>
                       <span className='text-[#182430]'>
@@ -91,7 +99,9 @@ export const DiagnosticModal = () => {
           <div
             style={{
               backgroundImage:
-                'linear-gradient(rgb(246 248 251 / 96%), rgba(246, 248, 251, .96)), url("/png-transparent-diagonal-lines-pattern-p-130x130q80.png")',
+                'linear-gradient(rgb(246 248 251 / 96%), rgba(246, 248, 251, .96)), url("/png-transparent-diagonal-lines-pattern.png")',
+              backgroundPosition: '0 0, 0 0',
+              backgroundSize: 'auto, 240px',
             }}
             className='flex min-h-full w-[25%] flex-col justify-between gap-10 rounded-tl-xl px-4 py-8 text-xs'
           >
@@ -99,7 +109,11 @@ export const DiagnosticModal = () => {
               <span className='text-[#7a7d7f]'>Facility</span>
               <div className='flex items-end gap-1.5'>
                 <div className='flex items-center justify-center rounded-full border bg-white p-1'>
-                  <BoltIcon className='h-3 w-3 text-[#b4b7be]' />
+                  <Image
+                    src={CarePlanIcon}
+                    alt='Care Plan'
+                    className='h-3 w-3 text-[#b4b7be]'
+                  />
                 </div>
                 <span className='text-[#7a7d7f]'>Weija Pharmacy</span>
               </div>
@@ -108,7 +122,11 @@ export const DiagnosticModal = () => {
               <span className='text-[#7a7d7f]'>Teams</span>
               <div className='flex items-end gap-1.5'>
                 <div className='flex items-center justify-center rounded-full border bg-white p-1'>
-                  <BoltIcon className='h-3 w-3 text-[#b4b7be]' />
+                  <Image
+                    src={CarePlanIcon}
+                    alt='Care Plan'
+                    className='h-3 w-3 text-[#b4b7be]'
+                  />
                 </div>
                 <span className='truncate text-[#7a7d7f]'>Adam Newman</span>
                 <span className='rounded-md border border-[#d0d5e2] px-0.5'>
@@ -117,7 +135,11 @@ export const DiagnosticModal = () => {
               </div>
               <div className='flex items-end gap-1.5'>
                 <div className='flex items-center justify-center rounded-full border bg-white p-1'>
-                  <BoltIcon className='h-3 w-3 text-[#b4b7be]' />
+                  <Image
+                    src={CarePlanIcon}
+                    alt='Care Plan'
+                    className='h-3 w-3 text-[#b4b7be]'
+                  />
                 </div>
                 <span className='truncate text-[#7a7d7f]'>Adam Newman</span>
               </div>
@@ -128,7 +150,9 @@ export const DiagnosticModal = () => {
           <div
             style={{
               backgroundImage:
-                'linear-gradient(rgb(246 248 251 / 96%), rgba(246, 248, 251, .96)), url("/png-transparent-diagonal-lines-pattern-p-130x130q80.png")',
+                'linear-gradient(rgb(246 248 251 / 96%), rgba(246, 248, 251, .96)), url("/png-transparent-diagonal-lines-pattern.png")',
+              backgroundPosition: '0 0, 0 0',
+              backgroundSize: 'auto, 240px',
             }}
             className='flex min-h-full w-[20%] flex-col gap-0.5 p-8 text-xs'
           >
@@ -174,7 +198,11 @@ export const DiagnosticModal = () => {
                 <div className='flex flex-wrap items-start gap-2'>
                   <div className='flex w-full items-center gap-2 rounded-md border border-[#f6f8fb] bg-[#f6f8fb] px-3 py-2 hover:border-[#d0d5e2]'>
                     <div className='flex items-center justify-center rounded-md border border-[#d0d5e2] bg-white p-2'>
-                      <NewspaperIcon className='h-6 w-6 text-[#7a7d7f]' />
+                      <Image
+                        src={FileIcon}
+                        alt='File'
+                        className='h-6 w-6 text-[#7a7d7f]'
+                      />
                     </div>
                     <div className='flex flex-col gap-1 text-xs'>
                       <span className='text-[#182430]'>
@@ -190,7 +218,9 @@ export const DiagnosticModal = () => {
           <div
             style={{
               backgroundImage:
-                'linear-gradient(rgb(246 248 251 / 96%), rgba(246, 248, 251, .96)), url("/png-transparent-diagonal-lines-pattern-p-130x130q80.png")',
+                'linear-gradient(rgb(246 248 251 / 96%), rgba(246, 248, 251, .96)), url("/png-transparent-diagonal-lines-pattern.png")',
+              backgroundPosition: '0 0, 0 0',
+              backgroundSize: 'auto, 240px',
             }}
             className='flex min-h-full w-[25%] flex-col justify-between gap-10 rounded-tl-xl px-4 py-8 text-xs'
           >
@@ -198,7 +228,11 @@ export const DiagnosticModal = () => {
               <span className='text-[#7a7d7f]'>Facility</span>
               <div className='flex items-end gap-1.5'>
                 <div className='flex items-center justify-center rounded-full border bg-white p-1'>
-                  <BoltIcon className='h-3 w-3 text-[#b4b7be]' />
+                  <Image
+                    src={CarePlanIcon}
+                    alt='Care Plan'
+                    className='h-3 w-3 text-[#b4b7be]'
+                  />
                 </div>
                 <span className='text-[#7a7d7f]'>Weija Pharmacy</span>
               </div>
@@ -207,7 +241,11 @@ export const DiagnosticModal = () => {
               <span className='text-[#7a7d7f]'>Teams</span>
               <div className='flex items-end gap-1.5'>
                 <div className='flex items-center justify-center rounded-full border bg-white p-1'>
-                  <BoltIcon className='h-3 w-3 text-[#b4b7be]' />
+                  <Image
+                    src={CarePlanIcon}
+                    alt='Care Plan'
+                    className='h-3 w-3 text-[#b4b7be]'
+                  />
                 </div>
                 <span className='truncate text-[#7a7d7f]'>Adam Newman</span>
                 <span className='rounded-md border border-[#d0d5e2] px-0.5'>
@@ -216,7 +254,11 @@ export const DiagnosticModal = () => {
               </div>
               <div className='flex items-end gap-1.5'>
                 <div className='flex items-center justify-center rounded-full border bg-white p-1'>
-                  <BoltIcon className='h-3 w-3 text-[#b4b7be]' />
+                  <Image
+                    src={CarePlanIcon}
+                    alt='Care Plan'
+                    className='h-3 w-3 text-[#b4b7be]'
+                  />
                 </div>
                 <span className='truncate text-[#7a7d7f]'>Adam Newman</span>
               </div>
@@ -227,7 +269,9 @@ export const DiagnosticModal = () => {
           <div
             style={{
               backgroundImage:
-                'linear-gradient(rgb(246 248 251 / 96%), rgba(246, 248, 251, .96)), url("/png-transparent-diagonal-lines-pattern-p-130x130q80.png")',
+                'linear-gradient(rgb(246 248 251 / 96%), rgba(246, 248, 251, .96)), url("/png-transparent-diagonal-lines-pattern.png")',
+              backgroundPosition: '0 0, 0 0',
+              backgroundSize: 'auto, 240px',
             }}
             className='flex min-h-full w-[20%] flex-col gap-0.5 p-8 text-xs'
           >
@@ -273,7 +317,11 @@ export const DiagnosticModal = () => {
                 <div className='flex flex-wrap items-start gap-2'>
                   <div className='flex w-full items-center gap-2 rounded-md border border-[#f6f8fb] bg-[#f6f8fb] px-3 py-2 hover:border-[#d0d5e2]'>
                     <div className='flex items-center justify-center rounded-md border border-[#d0d5e2] bg-white p-2'>
-                      <NewspaperIcon className='h-6 w-6 text-[#7a7d7f]' />
+                      <Image
+                        src={FileIcon}
+                        alt='File'
+                        className='h-6 w-6 text-[#7a7d7f]'
+                      />
                     </div>
                     <div className='flex flex-col gap-1 text-xs'>
                       <span className='text-[#182430]'>
@@ -289,7 +337,9 @@ export const DiagnosticModal = () => {
           <div
             style={{
               backgroundImage:
-                'linear-gradient(rgb(246 248 251 / 96%), rgba(246, 248, 251, .96)), url("/png-transparent-diagonal-lines-pattern-p-130x130q80.png")',
+                'linear-gradient(rgb(246 248 251 / 96%), rgba(246, 248, 251, .96)), url("/png-transparent-diagonal-lines-pattern.png")',
+              backgroundPosition: '0 0, 0 0',
+              backgroundSize: 'auto, 240px',
             }}
             className='flex min-h-full w-[25%] flex-col justify-between gap-10 rounded-tl-xl px-4 py-8 text-xs'
           >
@@ -297,7 +347,11 @@ export const DiagnosticModal = () => {
               <span className='text-[#7a7d7f]'>Facility</span>
               <div className='flex items-end gap-1.5'>
                 <div className='flex items-center justify-center rounded-full border bg-white p-1'>
-                  <BoltIcon className='h-3 w-3 text-[#b4b7be]' />
+                  <Image
+                    src={CarePlanIcon}
+                    alt='Care Plan'
+                    className='h-3 w-3 text-[#b4b7be]'
+                  />
                 </div>
                 <span className='text-[#7a7d7f]'>Weija Pharmacy</span>
               </div>
@@ -306,7 +360,11 @@ export const DiagnosticModal = () => {
               <span className='text-[#7a7d7f]'>Teams</span>
               <div className='flex items-end gap-1.5'>
                 <div className='flex items-center justify-center rounded-full border bg-white p-1'>
-                  <BoltIcon className='h-3 w-3 text-[#b4b7be]' />
+                  <Image
+                    src={CarePlanIcon}
+                    alt='Care Plan'
+                    className='h-3 w-3 text-[#b4b7be]'
+                  />
                 </div>
                 <span className='truncate text-[#7a7d7f]'>Adam Newman</span>
                 <span className='rounded-md border border-[#d0d5e2] px-0.5'>
@@ -315,7 +373,11 @@ export const DiagnosticModal = () => {
               </div>
               <div className='flex items-end gap-1.5'>
                 <div className='flex items-center justify-center rounded-full border bg-white p-1'>
-                  <BoltIcon className='h-3 w-3 text-[#b4b7be]' />
+                  <Image
+                    src={CarePlanIcon}
+                    alt='Care Plan'
+                    className='h-3 w-3 text-[#b4b7be]'
+                  />
                 </div>
                 <span className='truncate text-[#7a7d7f]'>Adam Newman</span>
               </div>

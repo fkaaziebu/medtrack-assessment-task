@@ -1,5 +1,5 @@
 'use client';
-
+import Image from 'next/image';
 import { useModal } from '@/app/hooks/use-modal-store';
 
 import {
@@ -9,7 +9,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/app/components/dialog/dialog';
-import { BoltIcon } from '@heroicons/react/24/outline';
+import CarePlanIcon from '@/public/ic-careplan.svg';
 
 export const MedicationModal = () => {
   const { isOpen, onClose, type } = useModal();
@@ -29,7 +29,9 @@ export const MedicationModal = () => {
           <div
             style={{
               backgroundImage:
-                'linear-gradient(rgb(246 248 251 / 96%), rgba(246, 248, 251, .96)), url("/png-transparent-diagonal-lines-pattern-p-130x130q80.png")',
+                'linear-gradient(rgb(246 248 251 / 96%), rgba(246, 248, 251, .96)), url("/png-transparent-diagonal-lines-pattern.png")',
+              backgroundPosition: '0 0, 0 0',
+              backgroundSize: 'auto, 240px',
             }}
             className='flex min-h-full w-[20%] flex-col gap-0.5 p-8 text-xs'
           >
@@ -77,7 +79,9 @@ export const MedicationModal = () => {
           <div
             style={{
               backgroundImage:
-                'linear-gradient(rgb(246 248 251 / 96%), rgba(246, 248, 251, .96)), url("/png-transparent-diagonal-lines-pattern-p-130x130q80.png")',
+                'linear-gradient(rgb(246 248 251 / 96%), rgba(246, 248, 251, .96)), url("/png-transparent-diagonal-lines-pattern.png")',
+              backgroundPosition: '0 0, 0 0',
+              backgroundSize: 'auto, 240px',
             }}
             className='flex min-h-full w-[25%] flex-col justify-between gap-10 rounded-tl-xl px-4 py-8 text-xs'
           >
@@ -85,7 +89,11 @@ export const MedicationModal = () => {
               <span className='text-[#7a7d7f]'>Facility</span>
               <div className='flex items-end gap-1.5'>
                 <div className='flex items-center justify-center rounded-full border bg-white p-1'>
-                  <BoltIcon className='h-3 w-3 text-[#b4b7be]' />
+                  <Image
+                    src={CarePlanIcon}
+                    alt='Care Plaln'
+                    className='h-3 w-3 text-[#b4b7be]'
+                  />
                 </div>
                 <span className='text-[#7a7d7f]'>Weija Pharmacy</span>
               </div>
@@ -94,7 +102,11 @@ export const MedicationModal = () => {
               <span className='text-[#7a7d7f]'>Teams</span>
               <div className='flex items-end gap-1.5'>
                 <div className='flex items-center justify-center rounded-full border bg-white p-1'>
-                  <BoltIcon className='h-3 w-3 text-[#b4b7be]' />
+                  <Image
+                    src={CarePlanIcon}
+                    alt='Care Plaln'
+                    className='h-3 w-3 text-[#b4b7be]'
+                  />
                 </div>
                 <span className='truncate text-[#7a7d7f]'>Adam Newman</span>
                 <span className='rounded-md border border-[#d0d5e2] px-0.5'>
@@ -103,7 +115,11 @@ export const MedicationModal = () => {
               </div>
               <div className='flex items-end gap-1.5'>
                 <div className='flex items-center justify-center rounded-full border bg-white p-1'>
-                  <BoltIcon className='h-3 w-3 text-[#b4b7be]' />
+                  <Image
+                    src={CarePlanIcon}
+                    alt='Care Plaln'
+                    className='h-3 w-3 text-[#b4b7be]'
+                  />
                 </div>
                 <span className='truncate text-[#7a7d7f]'>Adam Newman</span>
               </div>
@@ -114,7 +130,9 @@ export const MedicationModal = () => {
           <div
             style={{
               backgroundImage:
-                'linear-gradient(rgb(246 248 251 / 96%), rgba(246, 248, 251, .96)), url("/png-transparent-diagonal-lines-pattern-p-130x130q80.png")',
+                'linear-gradient(rgb(246 248 251 / 96%), rgba(246, 248, 251, .96)), url("/png-transparent-diagonal-lines-pattern.png")',
+              backgroundPosition: '0 0, 0 0',
+              backgroundSize: 'auto, 240px',
             }}
             className='flex min-h-full w-[20%] flex-col gap-0.5 p-8 text-xs'
           >
@@ -162,7 +180,9 @@ export const MedicationModal = () => {
           <div
             style={{
               backgroundImage:
-                'linear-gradient(rgb(246 248 251 / 96%), rgba(246, 248, 251, .96)), url("/png-transparent-diagonal-lines-pattern-p-130x130q80.png")',
+                'linear-gradient(rgb(246 248 251 / 96%), rgba(246, 248, 251, .96)), url("/png-transparent-diagonal-lines-pattern.png")',
+              backgroundPosition: '0 0, 0 0',
+              backgroundSize: 'auto, 240px',
             }}
             className='flex min-h-full w-[25%] flex-col justify-between gap-10 rounded-tl-xl px-4 py-8 text-xs'
           >
@@ -170,7 +190,11 @@ export const MedicationModal = () => {
               <span className='text-[#7a7d7f]'>Facility</span>
               <div className='flex items-end gap-1.5'>
                 <div className='flex items-center justify-center rounded-full border bg-white p-1'>
-                  <BoltIcon className='h-3 w-3 text-[#b4b7be]' />
+                  <Image
+                    src={CarePlanIcon}
+                    alt='Care Plaln'
+                    className='h-3 w-3 text-[#b4b7be]'
+                  />
                 </div>
                 <span className='text-[#7a7d7f]'>Weija Pharmacy</span>
               </div>
@@ -179,7 +203,11 @@ export const MedicationModal = () => {
               <span className='text-[#7a7d7f]'>Teams</span>
               <div className='flex items-end gap-1.5'>
                 <div className='flex items-center justify-center rounded-full border bg-white p-1'>
-                  <BoltIcon className='h-3 w-3 text-[#b4b7be]' />
+                  <Image
+                    src={CarePlanIcon}
+                    alt='Care Plaln'
+                    className='h-3 w-3 text-[#b4b7be]'
+                  />
                 </div>
                 <span className='truncate text-[#7a7d7f]'>Adam Newman</span>
                 <span className='rounded-md border border-[#d0d5e2] px-0.5'>
@@ -188,7 +216,11 @@ export const MedicationModal = () => {
               </div>
               <div className='flex items-end gap-1.5'>
                 <div className='flex items-center justify-center rounded-full border bg-white p-1'>
-                  <BoltIcon className='h-3 w-3 text-[#b4b7be]' />
+                  <Image
+                    src={CarePlanIcon}
+                    alt='Care Plaln'
+                    className='h-3 w-3 text-[#b4b7be]'
+                  />
                 </div>
                 <span className='truncate text-[#7a7d7f]'>Berlinda Adams</span>
               </div>
@@ -199,7 +231,9 @@ export const MedicationModal = () => {
           <div
             style={{
               backgroundImage:
-                'linear-gradient(rgb(246 248 251 / 96%), rgba(246, 248, 251, .96)), url("/png-transparent-diagonal-lines-pattern-p-130x130q80.png")',
+                'linear-gradient(rgb(246 248 251 / 96%), rgba(246, 248, 251, .96)), url("/png-transparent-diagonal-lines-pattern.png")',
+              backgroundPosition: '0 0, 0 0',
+              backgroundSize: 'auto, 240px',
             }}
             className='flex min-h-full w-[20%] flex-col gap-0.5 p-8 text-xs'
           >
@@ -247,7 +281,9 @@ export const MedicationModal = () => {
           <div
             style={{
               backgroundImage:
-                'linear-gradient(rgb(246 248 251 / 96%), rgba(246, 248, 251, .96)), url("/png-transparent-diagonal-lines-pattern-p-130x130q80.png")',
+                'linear-gradient(rgb(246 248 251 / 96%), rgba(246, 248, 251, .96)), url("/png-transparent-diagonal-lines-pattern.png")',
+              backgroundPosition: '0 0, 0 0',
+              backgroundSize: 'auto, 240px',
             }}
             className='flex min-h-full w-[25%] flex-col justify-between gap-10 rounded-tl-xl px-4 py-8 text-xs'
           >
@@ -255,7 +291,11 @@ export const MedicationModal = () => {
               <span className='text-[#7a7d7f]'>Facility</span>
               <div className='flex items-end gap-1.5'>
                 <div className='flex items-center justify-center rounded-full border bg-white p-1'>
-                  <BoltIcon className='h-3 w-3 text-[#b4b7be]' />
+                  <Image
+                    src={CarePlanIcon}
+                    alt='Care Plaln'
+                    className='h-3 w-3 text-[#b4b7be]'
+                  />
                 </div>
                 <span className='text-[#7a7d7f]'>Weija Pharmacy</span>
               </div>
@@ -264,7 +304,11 @@ export const MedicationModal = () => {
               <span className='text-[#7a7d7f]'>Teams</span>
               <div className='flex items-end gap-1.5'>
                 <div className='flex items-center justify-center rounded-full border bg-white p-1'>
-                  <BoltIcon className='h-3 w-3 text-[#b4b7be]' />
+                  <Image
+                    src={CarePlanIcon}
+                    alt='Care Plaln'
+                    className='h-3 w-3 text-[#b4b7be]'
+                  />
                 </div>
                 <span className='truncate text-[#7a7d7f]'>Adam Newman</span>
                 <span className='rounded-md border border-[#d0d5e2] px-0.5'>
@@ -273,7 +317,11 @@ export const MedicationModal = () => {
               </div>
               <div className='flex items-end gap-1.5'>
                 <div className='flex items-center justify-center rounded-full border bg-white p-1'>
-                  <BoltIcon className='h-3 w-3 text-[#b4b7be]' />
+                  <Image
+                    src={CarePlanIcon}
+                    alt='Care Plaln'
+                    className='h-3 w-3 text-[#b4b7be]'
+                  />
                 </div>
                 <span className='truncate text-[#7a7d7f]'>Sandra Riley</span>
               </div>

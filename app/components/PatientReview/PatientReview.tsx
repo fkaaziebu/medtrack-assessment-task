@@ -1,12 +1,14 @@
 'use client';
-import { BoltIcon } from '@heroicons/react/24/outline';
-import { ChevronDownIcon, UserIcon } from '@heroicons/react/24/solid';
-import {
-  ClipboardDocumentIcon,
-  LinkIcon,
-  PresentationChartLineIcon,
-  WrenchScrewdriverIcon,
-} from '@heroicons/react/24/outline';
+import Image from 'next/image';
+import CarePlanIcon from '@/public/ic-careplan.svg';
+import ChevronDownIcon from '@/public/ic-chevron-down.svg';
+import HistoryIcon from '@/public/ic-HE-Findings.svg';
+import MedicationIcon from '@/public/ic-pill_1ic-pill.png';
+import DiagnosticsIcon from '@/public/ic-labs.svg';
+import VitalsIcon from '@/public/ic-activity.svg';
+
+import PatientAvatar from '@/public/avatar_patient_default.png';
+
 import { useState } from 'react';
 import { useModal } from '@/app/hooks/use-modal-store';
 import { nurseSignin } from '@/lib/actions';
@@ -15,13 +17,15 @@ export default function PatientReview() {
   const [expand, setExpand] = useState(false);
   const { onOpen } = useModal();
   return (
-    <div className='grid grid-cols-5 overflow-hidden rounded-lg border border-[#d0d5e2] bg-white'>
+    <div className='grid grid-cols-1 overflow-hidden rounded-lg border border-[#d0d5e2] bg-white md:grid-cols-5'>
       <div
         style={{
           backgroundImage:
-            'linear-gradient(rgb(246 248 251 / 96%), rgba(246, 248, 251, .96)), url("/png-transparent-diagonal-lines-pattern-p-130x130q80.png")',
+            'linear-gradient(rgb(246 248 251 / 96%), rgba(246, 248, 251, .96)), url("/png-transparent-diagonal-lines-pattern.png")',
+          backgroundPosition: '0 0, 0 0',
+          backgroundSize: 'auto, 240px',
         }}
-        className='col-span-1 border-r border-[#d0d5e2] bg-contain px-4 py-4'
+        className='col-span-1 hidden border-r border-[#d0d5e2] bg-contain py-4 md:block lg:px-2 xl:px-4'
       >
         <div className='flex flex-col gap-4'>
           <div className='flex flex-col'>
@@ -32,17 +36,25 @@ export default function PatientReview() {
             <button type='button' onClick={() => setExpand(!expand)}>
               <div className='flex items-center gap-4 rounded-md border border-[#d0d5e2] bg-white px-1.5 py-0.5 text-[#7a7d7f] hover:text-[#58595a]'>
                 <span className='text-sm'>Expand</span>
-                <ChevronDownIcon className='h-4 w-4' />
+                <Image
+                  src={ChevronDownIcon}
+                  alt='Chevron Down'
+                  className='h-4 w-4'
+                />
               </div>
             </button>
           </div>
         </div>
       </div>
 
-      <div className='col-span-2 flex items-start justify-start px-4 py-4'>
+      <div className='col-span-1 flex items-start justify-start px-4 py-4 md:col-span-2'>
         <div className=' flex items-center gap-4'>
           <div className='flex h-10 w-10 items-center justify-center rounded-full border border-[#d0d5e2]'>
-            <BoltIcon className='h-4 w-4 text-[#7a7d7f]' />
+            <Image
+              src={CarePlanIcon}
+              alt='Care Plan'
+              className='h-4 w-4 text-[#7a7d7f]'
+            />
           </div>
           <div className='flex flex-col'>
             <h2 className='text-lg font-medium'>Discharge Review</h2>
@@ -51,7 +63,7 @@ export default function PatientReview() {
         </div>
       </div>
 
-      <div className='col-span-1 flex flex-col items-end  justify-start gap-3 px-4 py-4 text-xs text-[#7a7d7f]'>
+      <div className='col-span-1 flex flex-col justify-start  gap-3 px-4 py-4 text-xs text-[#7a7d7f] md:items-end'>
         <div className='flex items-center gap-2'>
           <h3>Last updated</h3>
           <span className='rounded-md bg-[#d0f3e4] px-1 py-0.5 text-[#044b2d]'>
@@ -64,48 +76,90 @@ export default function PatientReview() {
         </div>
       </div>
 
-      <div className='col-span-1 flex items-start justify-end  px-4 py-4'>
+      <div className='col-span-1 flex items-start px-4  py-4 md:justify-end'>
         <button
           onClick={async () => {
             onOpen('medicationDetectionModal');
-            console.log(await nurseSignin('jn.quansah40@gmail.com', 'password'))
+            console.log(
+              await nurseSignin('jn.quansah40@gmail.com', 'password')
+            );
           }}
-          className='flex rounded-md bg-[#3952a6] px-3.5 py-2 text-white shadow-xl hover:bg-[#1d368b]'
+          className='flex w-full items-center justify-center rounded-md bg-[#3952a6] px-3.5 py-2 text-white shadow-xl hover:bg-[#1d368b] md:w-auto'
         >
           <span className='text-sm'>Continue</span>
         </button>
       </div>
 
+      <div
+        style={{
+          backgroundImage:
+            'linear-gradient(rgb(246 248 251 / 96%), rgba(246, 248, 251, .96)), url("/png-transparent-diagonal-lines-pattern.png")',
+          backgroundPosition: '0 0, 0 0',
+          backgroundSize: 'auto, 240px',
+        }}
+        className='col-span-1 block border-r border-[#d0d5e2] bg-contain px-4 py-4 md:hidden'
+      >
+        <div className='flex justify-between gap-4'>
+          <div className='flex flex-col'>
+            <h2 className='text-sm text-[#7a7d7f]'>Review generated at</h2>
+            <span className='text-base font-medium'>7:30 PM</span>
+          </div>
+          <div>
+            <button type='button' onClick={() => setExpand(!expand)}>
+              <div className='flex items-center gap-4 rounded-md border border-[#d0d5e2] bg-white px-1.5 py-0.5 text-[#7a7d7f] hover:text-[#58595a]'>
+                <span className='text-sm'>Expand</span>
+                <Image
+                  src={ChevronDownIcon}
+                  alt='Chevron Down'
+                  className='h-4 w-4'
+                />
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+
       {expand && (
-        <div className='col-span-5 grid  grid-cols-subgrid border-t border-[#d0d5e2]'>
-          <div className='col-span-1'>
+        <div className='col-span-1 grid grid-cols-subgrid  border-t border-[#d0d5e2] md:col-span-5'>
+          <div className='col-span-1 hidden lg:block xl:hidden'></div>
+          <div className='col-span-1 lg:col-span-2 xl:col-span-1'>
             <div className='flex h-full w-full flex-col border-r border-t-2 border-r-[#d0d5e2] border-t-white'>
               <div className='h-12 w-full border-b border-b-[#f1f3f7] bg-white'></div>
               <div
                 style={{
                   backgroundImage:
-                    'linear-gradient(rgb(246 248 251 / 96%), rgba(246, 248, 251, .96)), url("/png-transparent-diagonal-lines-pattern-p-130x130q80.png")',
+                    'linear-gradient(rgb(246 248 251 / 96%), rgba(246, 248, 251, .96)), url("/png-transparent-diagonal-lines-pattern.png")',
+                  backgroundPosition: '0 0, 0 0',
+                  backgroundSize: 'auto, 240px',
                 }}
                 className='h-80 overflow-y-hidden'
               >
                 <div className='flex flex-col gap-1 px-3 py-4 text-xs text-[#7a7d7f]'>
                   <h3>Team</h3>
                   <div className='flex items-center gap-1'>
-                    <UserIcon className='h-5 w-5 rounded-full border border-[#d0d5e2] pt-0.5 text-[#3952a6]' />
+                    <Image
+                      src={PatientAvatar}
+                      alt='Patient Avatar'
+                      className='h-5 w-5 rounded-full border border-[#d0d5e2] pt-0.5 text-[#3952a6]'
+                    />
                     <span>Adam Newman</span>
                     <span className='rounded-md border border-[#d0d5e2] px-0.5'>
                       MD
                     </span>
                   </div>
                   <div className='flex items-center gap-1'>
-                    <UserIcon className='h-5 w-5 rounded-full border border-[#d0d5e2] pt-0.5 text-[#3952a6]' />
+                    <Image
+                      src={PatientAvatar}
+                      alt='Patient Avatar'
+                      className='h-5 w-5 rounded-full border border-[#d0d5e2] pt-0.5 text-[#3952a6]'
+                    />
                     <span>Sandra Riley</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div className='col-span-1'>
+          <div className='col-span-1 lg:col-span-2 xl:col-span-1'>
             <div className='flex h-full w-full flex-col border-r border-t-2 border-r-[#d0d5e2] border-t-[#0428db]'>
               <div
                 style={{
@@ -114,7 +168,11 @@ export default function PatientReview() {
                 }}
                 className='flex h-12 w-full items-center gap-2 border-b border-b-[#f1f3f7] bg-white pl-2'
               >
-                <ClipboardDocumentIcon className='h-5 w-5 text-[#7a7d7f]' />
+                <Image
+                  src={HistoryIcon}
+                  alt='History and Exams'
+                  className='h-5 w-5 text-[#7a7d7f]'
+                />
                 <h3 className='text-xs text-[#7a7d7f]'>
                   History & Exams Notes
                 </h3>
@@ -202,7 +260,7 @@ export default function PatientReview() {
                   className='absolute bottom-0 flex h-24 w-full px-2 pb-1.5'
                 >
                   <div className='mt-auto flex w-full items-center justify-between px-1.5'>
-                    <span className='truncate text-sm text-[#182430]'>
+                    <span className='truncate text-sm text-[#182430] lg:hidden 2xl:inline'>
                       Expand summary
                     </span>
                     <button
@@ -217,7 +275,8 @@ export default function PatientReview() {
               </div>
             </div>
           </div>
-          <div className='col-span-1'>
+          <div className='col-span-1 hidden lg:block xl:hidden'></div>
+          <div className='col-span-1 lg:col-span-2 xl:col-span-1'>
             <div className='flex h-full w-full flex-col border-r border-t-2 border-r-[#d0d5e2] border-t-[#00b066]'>
               <div
                 style={{
@@ -226,7 +285,11 @@ export default function PatientReview() {
                 }}
                 className='flex h-12 w-full items-center gap-2 border-b border-b-[#f1f3f7] bg-white pl-2'
               >
-                <LinkIcon className='h-5 w-5 text-[#7a7d7f]' />
+                <Image
+                  src={MedicationIcon}
+                  alt='Medication'
+                  className='h-5 w-5 text-[#7a7d7f]'
+                />
                 <h3 className='text-xs text-[#7a7d7f]'>Medications</h3>
               </div>
               <div className='relative h-80 overflow-y-hidden'>
@@ -261,7 +324,7 @@ export default function PatientReview() {
                   className='absolute bottom-0 flex h-24 w-full px-2 pb-1.5'
                 >
                   <div className='mt-auto flex w-full items-center justify-between px-1.5'>
-                    <span className='truncate text-sm text-[#182430]'>
+                    <span className='truncate text-sm text-[#182430] lg:hidden 2xl:inline'>
                       View details
                     </span>
                     <button
@@ -276,7 +339,7 @@ export default function PatientReview() {
               </div>
             </div>
           </div>
-          <div className='col-span-1'>
+          <div className='col-span-1 lg:col-span-2 xl:col-span-1'>
             <div className='flex h-full w-full flex-col border-r border-t-2 border-r-[#d0d5e2] border-t-[#e45151]'>
               <div
                 style={{
@@ -285,7 +348,11 @@ export default function PatientReview() {
                 }}
                 className='flex h-12 w-full items-center gap-2 border-b border-b-[#f1f3f7] bg-white pl-2'
               >
-                <WrenchScrewdriverIcon className='h-5 w-5 text-[#7a7d7f]' />
+                <Image
+                  src={DiagnosticsIcon}
+                  alt='Diagnostics'
+                  className='h-5 w-5 text-[#7a7d7f]'
+                />
                 <h3 className='text-xs text-[#7a7d7f]'>Diagnostics</h3>
               </div>
               <div className='relative h-80 overflow-y-hidden'>
@@ -315,7 +382,7 @@ export default function PatientReview() {
                   className='absolute bottom-0 flex h-24 w-full px-2 pb-1.5'
                 >
                   <div className='mt-auto flex w-full items-center justify-between px-1.5'>
-                    <span className='truncate text-sm text-[#182430]'>
+                    <span className='truncate text-sm text-[#182430] lg:hidden 2xl:inline'>
                       View reports
                     </span>
                     <button
@@ -330,7 +397,8 @@ export default function PatientReview() {
               </div>
             </div>
           </div>
-          <div className='col-span-1 '>
+          <div className='col-span-1 hidden lg:block xl:hidden'></div>
+          <div className='col-span-1 lg:col-span-2 xl:col-span-1'>
             <div className='flex h-full w-[98%] flex-col border-r border-t-2 border-r-[#d0d5e2] border-t-[#dbad04]'>
               <div
                 style={{
@@ -339,7 +407,11 @@ export default function PatientReview() {
                 }}
                 className='flex h-12 w-full items-center gap-2 border-b border-b-[#f1f3f7] bg-white pl-2'
               >
-                <PresentationChartLineIcon className='h-5 w-5 text-[#7a7d7f]' />
+                <Image
+                  src={VitalsIcon}
+                  alt='Vitals'
+                  className='h-5 w-5 text-[#7a7d7f]'
+                />
                 <h3 className='text-xs text-[#7a7d7f]'>Vitals</h3>
               </div>
               <div className='relative h-80 overflow-y-hidden'>
@@ -422,7 +494,7 @@ export default function PatientReview() {
                   className='absolute bottom-0 flex h-24 w-full px-2 pb-1.5'
                 >
                   <div className='mt-auto flex w-full items-center justify-between px-1.5'>
-                    <span className='truncate text-sm text-[#182430]'>
+                    <span className='truncate text-sm text-[#182430] lg:hidden 2xl:inline'>
                       4 more records
                     </span>
                     <button

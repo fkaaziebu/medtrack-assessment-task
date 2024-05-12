@@ -1,17 +1,38 @@
 import Image from 'next/image';
 import profilePic from '@/public/MedTrack_User_Male_03.jpeg';
-import { NewspaperIcon } from '@heroicons/react/24/outline';
+import FileIcon from '@/public/ic-file-attachment.svg';
+import MenuRightIcon from '@/public/expand-right.svg';
 
-export default function Sidebar() {
+interface PatientBarProps {
+  setOpenRightMenu?: any;
+}
+
+export default function Sidebar(props: PatientBarProps) {
   const firstName = window.localStorage.getItem('firstName');
   const lastName = window.localStorage.getItem('lastName');
   return (
     <>
       {/* Sidebar Header */}
-      <div className='flex h-[3.75rem] w-full items-center justify-center gap-5 border-b border-[#d0d5e2]'>
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className='relative ml-auto flex h-[3.75rem] w-[85%] items-center justify-center gap-5 border-b border-[#d0d5e2] bg-white lg:w-full'
+      >
+        <div
+          onClick={() => props.setOpenRightMenu(false)}
+          className='absolute left-4 top-4 cursor-pointer rounded-full p-1 lg:hidden'
+        >
+          <Image
+            src={MenuRightIcon}
+            alt='Backt to previous page'
+            className='h-6 w-6'
+          />
+        </div>
         <h1 className='font-medium'>Patient Information</h1>
       </div>
-      <div className='no-scrollbar h-[calc(100%-3.75rem)] overflow-y-auto pb-8'>
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className='no-scrollbar ml-auto h-[calc(100%-3.75rem)] w-[85%] overflow-y-auto bg-white pb-8 lg:w-full'
+      >
         <div className='flex w-full flex-col items-center justify-center gap-3 py-8'>
           <div className='h-16 w-16 overflow-clip rounded-full'>
             <Image src={profilePic} alt='Picture of Nurse' />
@@ -34,7 +55,11 @@ export default function Sidebar() {
           </div>
           <div className='flex w-full items-center gap-4 rounded-md px-3 py-4'>
             <div className='flex items-center justify-center rounded-full border border-[#d0d5e2] bg-white p-2'>
-              <NewspaperIcon className='h-8 w-8 text-[#182430]' />
+              <Image
+                src={FileIcon}
+                alt='Hospital File'
+                className='h-8 w-8 text-[#182430]'
+              />
             </div>
             <div className='flex flex-col gap-1'>
               <span className='font-medium text-[#182430]'>

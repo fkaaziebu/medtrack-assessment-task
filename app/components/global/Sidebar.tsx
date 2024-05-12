@@ -1,19 +1,25 @@
 'use client';
 
 import Image from 'next/image';
+import logo from '@/public/Logo_MedTrack.svg';
+import PatientIcon from '@/public/ic-patients.svg';
+import WaitingRoomIcon from '@/public/ic-waiting-room.svg';
+import InPatientIcon from '@/public/ic-inpatient.svg';
+import NotificationIcon from '@/public/ic-notification-box.svg';
+import SettingsIcon from '@/public/ic-settings.svg';
+import LogoutIcon from '@/public/ic-logout-hover.svg';
+import FeedbackIcon from '@/public/ic-feedback.svg';
+import XMarkIcon from '@/public/Ico-Close.svg';
+
 import profilePic from '@/public/avatar_patient_default.png';
-import {
-  AdjustmentsHorizontalIcon,
-  ArrowLeftStartOnRectangleIcon,
-  BellIcon,
-  ChatBubbleBottomCenterTextIcon,
-  HomeModernIcon,
-  UserGroupIcon,
-  UserIcon,
-} from '@heroicons/react/24/outline';
+
 import { useRouter } from 'next/navigation';
 
-export default function Sidebar() {
+interface SidebarProps {
+  setOpenLeftMenu?: any;
+}
+
+export default function Sidebar(props: SidebarProps) {
   const firstName = window.localStorage.getItem('firstName');
   const lastName = window.localStorage.getItem('lastName');
   const router = useRouter();
@@ -21,11 +27,26 @@ export default function Sidebar() {
   return (
     <>
       {/* Sidebar Header */}
-      <div className='flex h-[3.75rem] w-full items-center justify-center gap-5 border-b border-[#d0d5e2]'>
-        <h1 className='font-medium'>Patient Information</h1>
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className='relative flex h-[3.75rem] w-[85%] items-center gap-5 border-b border-[#d0d5e2] bg-[#3952a6] text-blue-50 lg:w-full'
+      >
+        <div className='flex h-full w-14 items-center justify-center bg-[#1d368b]'>
+          <Image src={logo} alt='Medtrack Logo' className='h-5 w-5' />
+        </div>
+        <h1 className=''>MedTrack</h1>
+        <div
+          onClick={() => props.setOpenLeftMenu(false)}
+          className='lg:hidden absolute right-4 top-4 cursor-pointer rounded-full p-1'
+        >
+          <Image src={XMarkIcon} alt='Close' className='h-5 w-5 text-white' />
+        </div>
       </div>
-      <div className='no-scrollbar h-[calc(100%-3.75rem)] overflow-y-auto'>
-        <div className='flex h-full flex-col'>
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className='no-scrollbar h-[calc(100%-3.75rem)] w-[85%] overflow-y-auto lg:w-full'
+      >
+        <div className='flex h-full flex-col bg-white'>
           <div className='flex w-full flex-col items-start justify-center gap-3 p-8'>
             <div className='h-16 w-16 overflow-clip rounded-full'>
               <Image src={profilePic} alt='Picture of Nurse' />
@@ -39,19 +60,35 @@ export default function Sidebar() {
           </div>
           <div className='w-full border-t border-t-[#d0d5e2]'>
             <div className='flex items-center gap-5 bg-white px-8 py-6 hover:bg-[#f6f8fb]'>
-              <UserIcon className='h-5 w-5 text-[#7a7d7f]' />
+              <Image
+                src={PatientIcon}
+                alt='Patient Logo'
+                className='h-5 w-5 text-[#7a7d7f]'
+              />
               <span className='text-[#182430]'>Patients</span>
             </div>
             <div className='flex items-center gap-5 bg-white px-8 py-6 hover:bg-[#f6f8fb]'>
-              <UserGroupIcon className='h-5 w-5 text-[#7a7d7f]' />
+              <Image
+                src={WaitingRoomIcon}
+                alt='Waiting Room'
+                className='h-5 w-5 text-[#7a7d7f]'
+              />
               <span className='text-[#182430]'>Waiting Room</span>
             </div>
             <div className='flex items-center gap-5 bg-white px-8 py-6 hover:bg-[#f6f8fb]'>
-              <HomeModernIcon className='h-5 w-5 text-[#7a7d7f]' />
+              <Image
+                src={InPatientIcon}
+                alt='In-patient'
+                className='h-5 w-5 text-[#7a7d7f]'
+              />
               <span className='text-[#182430]'>In-Patients</span>
             </div>
             <div className='flex items-center gap-5 bg-white px-8 py-6 hover:bg-[#f6f8fb]'>
-              <BellIcon className='h-5 w-5 text-[#7a7d7f]' />
+              <Image
+                src={NotificationIcon}
+                alt='Notification'
+                className='h-5 w-5 text-[#7a7d7f]'
+              />
               <div className='flex items-center gap-2'>
                 <span className='text-[#182430]'>Notifications</span>
                 <span className='rounded-xl bg-[#e45151] px-2.5 py-0.5 text-xs text-white'>
@@ -60,7 +97,11 @@ export default function Sidebar() {
               </div>
             </div>
             <div className='flex items-center gap-5 bg-white px-8 py-6 hover:bg-[#f6f8fb]'>
-              <AdjustmentsHorizontalIcon className='h-5 w-5 text-[#7a7d7f]' />
+              <Image
+                src={SettingsIcon}
+                alt='Settings'
+                className='h-5 w-5 text-[#7a7d7f]'
+              />
               <span className='text-[#182430]'>Settings</span>
             </div>
           </div>
@@ -73,7 +114,11 @@ export default function Sidebar() {
                 }}
               >
                 <div className='flex items-center gap-2'>
-                  <ArrowLeftStartOnRectangleIcon className='h-5 w-5 text-[#e45151]' />
+                  <Image
+                    src={LogoutIcon}
+                    alt='Log Out'
+                    className='h-5 w-5 text-[#7a7d7f]'
+                  />
                   <span className='text-sm text-[#182430] hover:text-[#e45151]'>
                     Log Out
                   </span>
@@ -83,7 +128,11 @@ export default function Sidebar() {
             <div>
               <button>
                 <div className='flex items-center gap-2 rounded-md border border-[#d0d5e2] bg-white p-1.5 text-[#7a7d7f]'>
-                  <ChatBubbleBottomCenterTextIcon className='h-4 w-4' />
+                  <Image
+                    src={FeedbackIcon}
+                    alt='Settings'
+                    className='h-5 w-5 text-[#7a7d7f]'
+                  />
                   <span className='text-sm'>Feedback</span>
                 </div>
               </button>
