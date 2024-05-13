@@ -17,6 +17,7 @@ import { useRouter } from 'next/navigation';
 
 interface SidebarProps {
   setOpenLeftMenu?: any;
+  openLeftMenu?: boolean;
 }
 
 export default function Sidebar(props: SidebarProps) {
@@ -24,8 +25,11 @@ export default function Sidebar(props: SidebarProps) {
   const lastName = window.localStorage.getItem('lastName');
   const router = useRouter();
 
+  
+
   return (
-    <>
+    <
+    >
       {/* Sidebar Header */}
       <div
         onClick={(e) => e.stopPropagation()}
@@ -34,10 +38,11 @@ export default function Sidebar(props: SidebarProps) {
         <div className='flex h-full w-14 items-center justify-center bg-[#1d368b]'>
           <Image src={logo} alt='Medtrack Logo' className='h-5 w-5' />
         </div>
-        <h1 className=''>MedTrack</h1>
+        <h1>MedTrack</h1>
+        {props.openLeftMenu}
         <div
           onClick={() => props.setOpenLeftMenu(false)}
-          className='lg:hidden absolute right-4 top-4 cursor-pointer rounded-full p-1'
+          className='absolute right-4 top-4 cursor-pointer rounded-full p-1 lg:hidden'
         >
           <Image src={XMarkIcon} alt='Close' className='h-5 w-5 text-white' />
         </div>

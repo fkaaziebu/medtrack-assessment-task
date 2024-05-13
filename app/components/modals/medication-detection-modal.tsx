@@ -18,7 +18,7 @@ export const MedicationDetectionModal = () => {
 
   return (
     <Dialog open={isModalOpen} onOpenChange={() => onClose()}>
-      <DialogContent className='min-h-[55%] min-w-[30%]'>
+      <DialogContent className='min-h-[55%] min-w-[90%] xl:min-w-[30%]'>
         <DialogHeader className='flex flex-col gap-4 bg-[#3952a6] py-8'>
           <DialogTitle className='flex items-center gap-2 text-white'>
             <div className='flex items-center justify-center rounded-full bg-[#0000001a] bg-blue-950 px-2.5 py-1'>

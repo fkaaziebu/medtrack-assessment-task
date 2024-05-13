@@ -1,5 +1,5 @@
 'use client';
-
+import { AnimatePresence, motion } from 'framer-motion';
 import React, { useState } from 'react';
 import Image from 'next/image';
 import CloudSavedIcon from '@/public/ic-saved.svg';
@@ -20,21 +20,36 @@ export default function ({ children }: { children: React.ReactNode }) {
 
   const [openLeftMenu, setOpenLeftMenu] = useState(false);
   const [openRightMenu, setOpenRightMenu] = useState(false);
+  const variants = {
+    open: { opacity: 1, x: '1%' },
+    closed: { opacity: 0, x: '-100%' },
+  };
 
   return (
     <div className='relative flex w-full font-sans text-[#182430]'>
-      <div className='hidden h-screen lg:w-[22%] xl:w-[20%] border-r border-[#d0d5e2] lg:block'>
+      <div className='hidden h-screen border-r border-[#d0d5e2] lg:block lg:w-[22%] xl:w-[20%]'>
         <Sidebar />
       </div>
-
-      {openLeftMenu && (
-        <div
-          onClick={() => setOpenLeftMenu(false)}
-          className='absolute z-30 h-screen w-full bg-zinc-900/80'
-        >
-          <Sidebar setOpenLeftMenu={setOpenLeftMenu} />
-        </div>
-      )}
+      <AnimatePresence>
+        {openLeftMenu && (
+          <div
+            onClick={() => setOpenLeftMenu(false)}
+            className='absolute z-30 h-screen w-full bg-zinc-900/80'
+          >
+            <motion.div
+              initial={{ opacity: 0, x: '-100%' }}
+              animate={{ opacity: 1, x: '0%' }}
+              exit={{ opacity: 0, x: '-100%' }}
+              className='h-full'
+            >
+              <Sidebar
+                openLeftMenu={openLeftMenu}
+                setOpenLeftMenu={setOpenLeftMenu}
+              />
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
 
       <div className='h-screen w-full lg:w-[56%] xl:w-[60%]'>
         {/* Content Header */}
@@ -83,17 +98,26 @@ export default function ({ children }: { children: React.ReactNode }) {
         </div>
       </div>
 
-      {openRightMenu && (
-        <div
-          onClick={() => setOpenRightMenu(false)}
-          className='absolute z-30 h-screen w-full bg-zinc-900/80'
-        >
-          <PatientBar setOpenRightMenu={setOpenRightMenu} />
-        </div>
-      )}
+      <AnimatePresence>
+        {openRightMenu && (
+          <div
+            onClick={() => setOpenRightMenu(false)}
+            className='absolute z-30 h-screen w-full bg-zinc-900/80'
+          >
+            <motion.div
+              initial={{ opacity: 0, x: '100%' }}
+              animate={{ opacity: 1, x: '0%' }}
+              exit={{ opacity: 0, x: '100%' }}
+              className='h-full'
+            >
+              <PatientBar setOpenRightMenu={setOpenRightMenu} />
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
 
       <ModalProvider />
-      <div className='hidden h-screen lg:w-[22%] xl:w-[20%] border-l border-[#d0d5e2] lg:block'>
+      <div className='hidden h-screen border-l border-[#d0d5e2] lg:block lg:w-[22%] xl:w-[20%]'>
         <PatientBar />
       </div>
     </div>

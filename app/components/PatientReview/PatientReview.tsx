@@ -12,13 +12,17 @@ import PatientAvatar from '@/public/avatar_patient_default.png';
 import { useState } from 'react';
 import { useModal } from '@/app/hooks/use-modal-store';
 import { nurseSignin } from '@/lib/actions';
+import { motion } from 'framer-motion';
 
 export default function PatientReview() {
   const [expand, setExpand] = useState(false);
   const { onOpen } = useModal();
   return (
-    <div className='grid grid-cols-1 overflow-hidden rounded-lg border border-[#d0d5e2] bg-white md:grid-cols-5'>
-      <div
+    <motion.div
+      layout
+      className='grid grid-cols-1 overflow-hidden rounded-lg border border-[#d0d5e2] bg-white md:grid-cols-5'
+    >
+      <motion.div
         style={{
           backgroundImage:
             'linear-gradient(rgb(246 248 251 / 96%), rgba(246, 248, 251, .96)), url("/png-transparent-diagonal-lines-pattern.png")',
@@ -26,6 +30,7 @@ export default function PatientReview() {
           backgroundSize: 'auto, 240px',
         }}
         className='col-span-1 hidden border-r border-[#d0d5e2] bg-contain py-4 md:block lg:px-2 xl:px-4'
+        layout
       >
         <div className='flex flex-col gap-4'>
           <div className='flex flex-col'>
@@ -45,9 +50,12 @@ export default function PatientReview() {
             </button>
           </div>
         </div>
-      </div>
+      </motion.div>
 
-      <div className='col-span-1 flex items-start justify-start px-4 py-4 md:col-span-2'>
+      <motion.div
+        layout
+        className='col-span-1 flex items-start justify-start px-4 py-4 md:col-span-2'
+      >
         <div className=' flex items-center gap-4'>
           <div className='flex h-10 w-10 items-center justify-center rounded-full border border-[#d0d5e2]'>
             <Image
@@ -61,9 +69,11 @@ export default function PatientReview() {
             <span className='text-[#7a7d7f]'>28th Jan 2023</span>
           </div>
         </div>
-      </div>
-
-      <div className='col-span-1 flex flex-col justify-start  gap-3 px-4 py-4 text-xs text-[#7a7d7f] md:items-end'>
+      </motion.div>
+      <motion.div
+        layout
+        className='col-span-1 flex flex-col justify-start  gap-3 px-4 py-4 text-xs text-[#7a7d7f] md:items-end'
+      >
         <div className='flex items-center gap-2'>
           <h3>Last updated</h3>
           <span className='rounded-md bg-[#d0f3e4] px-1 py-0.5 text-[#044b2d]'>
@@ -74,9 +84,12 @@ export default function PatientReview() {
           <h3>Updated by</h3>
           <span className='rounded-md border border-[#d0d5e2] p-1'>Sandra</span>
         </div>
-      </div>
+      </motion.div>
 
-      <div className='col-span-1 flex items-start px-4  py-4 md:justify-end'>
+      <motion.div
+        className='col-span-1 flex items-start px-4  py-4 md:justify-end'
+        layout
+      >
         <button
           onClick={async () => {
             onOpen('medicationDetectionModal');
@@ -88,9 +101,9 @@ export default function PatientReview() {
         >
           <span className='text-sm'>Continue</span>
         </button>
-      </div>
+      </motion.div>
 
-      <div
+      <motion.div
         style={{
           backgroundImage:
             'linear-gradient(rgb(246 248 251 / 96%), rgba(246, 248, 251, .96)), url("/png-transparent-diagonal-lines-pattern.png")',
@@ -98,6 +111,7 @@ export default function PatientReview() {
           backgroundSize: 'auto, 240px',
         }}
         className='col-span-1 block border-r border-[#d0d5e2] bg-contain px-4 py-4 md:hidden'
+        layout
       >
         <div className='flex justify-between gap-4'>
           <div className='flex flex-col'>
@@ -117,10 +131,12 @@ export default function PatientReview() {
             </button>
           </div>
         </div>
-      </div>
-
+      </motion.div>
       {expand && (
-        <div className='col-span-1 grid grid-cols-subgrid  border-t border-[#d0d5e2] md:col-span-5'>
+        <motion.div
+          layout
+          className='col-span-1 grid grid-cols-subgrid  border-t border-[#d0d5e2] md:col-span-5'
+        >
           <div className='col-span-1 hidden lg:block xl:hidden'></div>
           <div className='col-span-1 lg:col-span-2 xl:col-span-1'>
             <div className='flex h-full w-full flex-col border-r border-t-2 border-r-[#d0d5e2] border-t-white'>
@@ -260,7 +276,7 @@ export default function PatientReview() {
                   className='absolute bottom-0 flex h-24 w-full px-2 pb-1.5'
                 >
                   <div className='mt-auto flex w-full items-center justify-between px-1.5'>
-                    <span className='truncate text-sm text-[#182430] lg:hidden 2xl:inline'>
+                    <span className='truncate text-sm text-[#182430] md:hidden 2xl:inline'>
                       Expand summary
                     </span>
                     <button
@@ -324,7 +340,7 @@ export default function PatientReview() {
                   className='absolute bottom-0 flex h-24 w-full px-2 pb-1.5'
                 >
                   <div className='mt-auto flex w-full items-center justify-between px-1.5'>
-                    <span className='truncate text-sm text-[#182430] lg:hidden 2xl:inline'>
+                    <span className='truncate text-sm text-[#182430] md:hidden 2xl:inline'>
                       View details
                     </span>
                     <button
@@ -382,7 +398,7 @@ export default function PatientReview() {
                   className='absolute bottom-0 flex h-24 w-full px-2 pb-1.5'
                 >
                   <div className='mt-auto flex w-full items-center justify-between px-1.5'>
-                    <span className='truncate text-sm text-[#182430] lg:hidden 2xl:inline'>
+                    <span className='truncate text-sm text-[#182430] md:hidden 2xl:inline'>
                       View reports
                     </span>
                     <button
@@ -494,7 +510,7 @@ export default function PatientReview() {
                   className='absolute bottom-0 flex h-24 w-full px-2 pb-1.5'
                 >
                   <div className='mt-auto flex w-full items-center justify-between px-1.5'>
-                    <span className='truncate text-sm text-[#182430] lg:hidden 2xl:inline'>
+                    <span className='truncate text-sm text-[#182430] md:hidden 2xl:inline'>
                       4 more records
                     </span>
                     <button
@@ -509,8 +525,8 @@ export default function PatientReview() {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       )}
-    </div>
+    </motion.div>
   );
 }

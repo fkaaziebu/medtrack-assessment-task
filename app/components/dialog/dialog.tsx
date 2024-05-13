@@ -2,6 +2,7 @@
 
 import { cn } from '@/lib/utils';
 import XMarkIcon from '@/public/x-close.svg';
+import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
 import React from 'react';
 
@@ -18,20 +19,22 @@ const Dialog = (props: DialogProps) => {
 
   return (
     <>
-      {props.open && (
-        <div
-          onClick={(e) => {
-            props.onOpenChange();
-          }}
-          className={cn(
-            'absolute z-30 h-screen w-full bg-zinc-900/80 lg:left-[22%] xl:left-[20%] lg:w-[80%]'
-          )}
-        >
-          <div className='no-scrollbar h-[calc(100%)] overflow-y-auto py-20 text-white'>
-            {props.children}
+      <AnimatePresence>
+        {props.open && (
+          <div
+            onClick={(e) => {
+              props.onOpenChange();
+            }}
+            className={cn(
+              'absolute z-30 h-screen w-full bg-zinc-900/80 lg:left-[22%] lg:w-[80%] xl:left-[20%]'
+            )}
+          >
+            <div className='no-scrollbar h-[calc(100%)] overflow-y-auto py-20 text-white'>
+              {props.children}
+            </div>
           </div>
-        </div>
-      )}
+        )}
+      </AnimatePresence>
     </>
   );
 };
@@ -47,19 +50,24 @@ interface DialogContentProps {
 
 const DialogContent = (props: DialogContentProps) => {
   return (
-    <div className='flex items-center justify-center'>
+    <motion.div
+      initial={{ opacity: 0, scale: 0 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0 }}
+      className='flex items-center justify-center'
+    >
       <div
         onClick={(e) => {
           e.stopPropagation();
         }}
         className={cn(
-          'relative flex min-h-[70%] min-w-[90%] xl:min-w-[55%] max-w-[55%] flex-col rounded-xl bg-white',
+          'relative flex min-h-[70%] min-w-[90%] max-w-[55%] flex-col overflow-clip rounded-xl bg-white xl:min-w-[55%]',
           props.className
         )}
       >
         {props.children}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
