@@ -1,7 +1,10 @@
 'use client';
 
 import React, { useCallback, useState } from 'react';
-import { nurseSignin as signinNurse } from '@/lib/actions';
+import {
+  nurseProfile as getNurseProfile,
+  nurseSignin as signinNurse,
+} from '@/lib/actions';
 import { useRouter } from 'next/navigation';
 
 const Auth = () => {
@@ -38,6 +41,13 @@ const Auth = () => {
           residence,
           token,
         } = nurseSignin;
+
+        const userFacility = await getNurseProfile(token);
+        // @ts-ignore
+        const { nurseProfile } = userFacility;
+        const { createdHealthFacility } = nurseProfile;
+
+        console.log('HealthFacility:', nurseProfile, createdHealthFacility);
         // @ts-ignore
         window.localStorage.setItem('token', token);
         window.localStorage.setItem('firstName', firstName);
@@ -52,6 +62,12 @@ const Auth = () => {
         window.localStorage.setItem('residence', residence);
         window.localStorage.setItem('visitId', visitId);
         window.localStorage.setItem('email', email);
+        window.localStorage.setItem('facilityId', createdHealthFacility.id);
+        window.localStorage.setItem(
+          'facilityName',
+          createdHealthFacility.facilityName
+        );
+
         setIsLoading(false);
         router.push('/encounter/care-plan');
       } catch (error) {

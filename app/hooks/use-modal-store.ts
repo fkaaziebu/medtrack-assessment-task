@@ -5,7 +5,11 @@ export type ModalType =
   | 'medication'
   | 'diagnostic'
   | 'medicationDetectionModal'
-  | 'vitals';
+  | 'vitals'
+  | 'patientVitals'
+  | 'notes'
+  | 'task-history'
+  | 'medication-schedule' | 'logout';
 
 interface ModalData {}
 

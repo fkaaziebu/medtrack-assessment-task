@@ -10,7 +10,7 @@ import { ModalProvider } from '@/app/components/providers/modal-provider';
 // Components
 import Sidebar from '@/app/components/global/Sidebar';
 import PatientBar from '@/app/components/global/PatientBar';
-import { redirect } from 'next/navigation';
+import { redirect, useRouter } from 'next/navigation';
 
 export default function ({ children }: { children: React.ReactNode }) {
   const token = window.localStorage.getItem('token');
@@ -20,10 +20,7 @@ export default function ({ children }: { children: React.ReactNode }) {
 
   const [openLeftMenu, setOpenLeftMenu] = useState(false);
   const [openRightMenu, setOpenRightMenu] = useState(false);
-  const variants = {
-    open: { opacity: 1, x: '1%' },
-    closed: { opacity: 0, x: '-100%' },
-  };
+  const router = useRouter()
 
   return (
     <div className='relative flex w-full font-sans text-[#182430]'>
@@ -54,7 +51,7 @@ export default function ({ children }: { children: React.ReactNode }) {
       <div className='h-screen w-full lg:w-[56%] xl:w-[60%]'>
         {/* Content Header */}
         <div className='relative flex  h-[3.75rem] w-full items-center justify-between gap-5 border-b border-[#d0d5e2] lg:static'>
-          <div className='hidden h-full w-20 cursor-pointer items-center justify-center lg:flex'>
+          <div onClick={() => router.back()} className='hidden h-full w-20 cursor-pointer items-center justify-center lg:flex'>
             <Image
               src={ArrowBackIcon}
               alt='Backt to previous page'

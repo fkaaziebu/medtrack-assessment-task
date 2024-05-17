@@ -93,9 +93,6 @@ export default function PatientReview() {
         <button
           onClick={async () => {
             onOpen('medicationDetectionModal');
-            console.log(
-              await nurseSignin('jn.quansah40@gmail.com', 'password')
-            );
           }}
           className='flex w-full items-center justify-center rounded-md bg-[#3952a6] px-3.5 py-2 text-white shadow-xl hover:bg-[#1d368b] md:w-auto'
         >

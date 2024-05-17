@@ -12,8 +12,7 @@ import FeedbackIcon from '@/public/ic-feedback.svg';
 import XMarkIcon from '@/public/Ico-Close.svg';
 
 import profilePic from '@/public/avatar_patient_default.png';
-
-import { useRouter } from 'next/navigation';
+import { useModal } from '@/app/hooks/use-modal-store';
 
 interface SidebarProps {
   setOpenLeftMenu?: any;
@@ -23,13 +22,10 @@ interface SidebarProps {
 export default function Sidebar(props: SidebarProps) {
   const firstName = window.localStorage.getItem('firstName');
   const lastName = window.localStorage.getItem('lastName');
-  const router = useRouter();
-
-  
-
+  const facilityName = window.localStorage.getItem('facilityName');
+  const { onOpen } = useModal();
   return (
-    <
-    >
+    <>
       {/* Sidebar Header */}
       <div
         onClick={(e) => e.stopPropagation()}
@@ -60,7 +56,7 @@ export default function Sidebar(props: SidebarProps) {
               <h1 className='text-lg text-[#182430]'>
                 {firstName} {lastName}
               </h1>
-              <span className='text-[#7a7d7f]'>GH 877 964 2877</span>
+              <span className='text-[#7a7d7f]'>{facilityName}</span>
             </div>
           </div>
           <div className='w-full border-t border-t-[#d0d5e2]'>
@@ -114,8 +110,7 @@ export default function Sidebar(props: SidebarProps) {
             <div className='flex items-center gap-4'>
               <button
                 onClick={() => {
-                  window.localStorage.clear();
-                  router.refresh();
+                  onOpen('logout');
                 }}
               >
                 <div className='flex items-center gap-2'>

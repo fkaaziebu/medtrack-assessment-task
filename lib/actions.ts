@@ -1,4 +1,4 @@
-import { nurseSigninQuery } from '@/graphql';
+import { nurseSigninQuery, nurseProfileQuery } from '@/graphql';
 import { GraphQLClient } from 'graphql-request';
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL || '';
@@ -15,4 +15,10 @@ const makeGraphQLRequest = async (query: string, variables = {}) => {
 
 export const nurseSignin = (email: string, password: string) => {
   return makeGraphQLRequest(nurseSigninQuery, { email, password });
+};
+
+export const nurseProfile = (token: string | null) => {
+  client.setHeader('Authorization', `Bearer ${token}`);
+
+  return makeGraphQLRequest(nurseProfileQuery);
 };

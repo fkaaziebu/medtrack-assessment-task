@@ -1,36 +1,30 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# How to Startup Assessment Task
 
-## Getting Started
+In other to get started with the project, the following steps below will guide you.
 
-First, run the development server:
+## Pull project into your local machine
+Run git clone repo-url to clone this repository into your local environment
 
+## Install dependencies
+Install the dependencies required to startup this application using the command below
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Update .env file
+In other for the graphql endpoint to work, you will need to at the graphql url to the .env file. Create a .env file in the root folder of your working directory and and the code below
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```code
+NEXT_PUBLIC_API_URL=https://medtrack-mock-api.onrender.com/graphql
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Startup development server
+You are ready to go now. Just run the last command to start viewing the project in a browser
+```code
+PORT=5000 npm run dev
+```
 
-## Learn More
+You can choose to remove the port value of which next.js will simply use the default configured port which is port 3000.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Task
+[x] Remember to remove unused imports
