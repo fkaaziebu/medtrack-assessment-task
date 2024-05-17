@@ -11,7 +11,6 @@ interface SidebarProps {
 export default function Sidebar(props: SidebarProps) {
   return (
     <>
-      {/* Sidebar Header */}
       <SidebarHeader
         openLeftMenu={props.openLeftMenu}
         setOpenLeftMenu={props.setOpenLeftMenu}
