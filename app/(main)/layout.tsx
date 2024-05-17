@@ -8,7 +8,7 @@ import MenuIcon from '@/public/menu-03.svg';
 import MenuRightIcon from '@/public/expand-right.svg';
 import { ModalProvider } from '@/app/components/providers/modal-provider';
 // Components
-import Sidebar from '@/app/components/global/Sidebar';
+import Sidebar from '@/app/components/global/sidebar/side-bar';
 import PatientBar from '@/app/components/global/PatientBar';
 import { redirect, useRouter } from 'next/navigation';
 
