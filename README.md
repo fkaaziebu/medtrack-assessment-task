@@ -46,3 +46,14 @@ PORT=5000 npm run dev
 ```
 
 You can choose to remove the port value of which next.js will simply use the default configured port which is port 3000.
+
+## Available Pages to access
+
+* `/` -> home page
+
+* `/encounter` -> encounter page
+
+* `/encounter/care-plan` -> care plan page (This is one of the useful pages in this assessment task)
+
+* `/encounter/care-plan/care-plan-action` -> (Care Plan action page, the 2nd useful page)
+
