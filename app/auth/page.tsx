@@ -9,7 +9,7 @@ import { useRouter } from 'next/navigation';
 
 const Auth = () => {
   const [userEmail, setUserEmail] = useState('');
-  const [visitId, setVisitId] = useState('');
+  const [visitId, setVisitId] = useState('348');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
@@ -46,8 +46,6 @@ const Auth = () => {
         // @ts-ignore
         const { nurseProfile } = userFacility;
         const { createdHealthFacility } = nurseProfile;
-
-        console.log('HealthFacility:', nurseProfile, createdHealthFacility);
         // @ts-ignore
         window.localStorage.setItem('token', token);
         window.localStorage.setItem('firstName', firstName);
@@ -107,7 +105,7 @@ const Auth = () => {
         <div className='flex flex-col gap-2'>
           <label htmlFor='visitId'>Visit ID</label>
           <input
-            type='visitId'
+            type='text'
             id='visitId'
             value={visitId}
             required={true}

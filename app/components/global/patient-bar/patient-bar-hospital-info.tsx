@@ -1,7 +1,11 @@
 import Image from 'next/image';
 import FileIcon from '@/public/ic-file-attachment.svg';
 
-export const PatientBarHospitalInfo = () => {
+interface PatientBarHospitalInfoProps {
+  title: String;
+}
+
+export const PatientBarHospitalInfo = (props: PatientBarHospitalInfoProps) => {
   return (
     <div className='border-b border-t border-[#d0d5e2]'>
       <div className='flex items-center gap-2 bg-[#f6f8fb] px-4 py-2'>
@@ -21,9 +25,7 @@ export const PatientBarHospitalInfo = () => {
           />
         </div>
         <div className='flex flex-col gap-1'>
-          <span className='font-medium text-[#182430]'>
-            Encounter At D.L Hospital
-          </span>
+          <span className='font-medium text-[#182430]'>{props.title}</span>
           <span className='text-[#7a7d7f]'>28th Jan 2023</span>
         </div>
       </div>

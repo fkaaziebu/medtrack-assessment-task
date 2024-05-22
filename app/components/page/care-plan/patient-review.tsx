@@ -11,12 +11,44 @@ import PatientAvatar from '@/public/avatar_patient_default.png';
 
 import { useState } from 'react';
 import { useModal } from '@/app/hooks/use-modal-store';
-import { nurseSignin } from '@/lib/actions';
 import { motion } from 'framer-motion';
 
-export default function PatientReview() {
+interface PatientReviewProp {
+  review: any;
+}
+
+export default function PatientReview(props: PatientReviewProp) {
   const [expand, setExpand] = useState(false);
   const { onOpen } = useModal();
+
+  // @ts-ignore
+  const renderElements = (elements) => {
+    // @ts-ignore
+    return elements.children.map((element, index) => {
+      if (element.type === undefined) {
+        return <p key={index}>{element.text}</p>;
+      } else if (element.type === 'list-item') {
+        return (
+          <ul
+            style={{
+              listStyle: 'disc inside',
+            }}
+            key={index}
+            className='ml-2'
+          >
+            {
+              // @ts-ignore
+              element.children.map((item, itemIndex) => (
+                <li key={itemIndex}>{item.text}</li>
+              ))
+            }
+          </ul>
+        );
+      }
+      return null;
+    });
+  };
+
   return (
     <motion.div
       layout
@@ -65,8 +97,8 @@ export default function PatientReview() {
             />
           </div>
           <div className='flex flex-col'>
-            <h2 className='text-lg font-medium'>Discharge Review</h2>
-            <span className='text-[#7a7d7f]'>28th Jan 2023</span>
+            <h2 className='text-lg font-medium'>{props.review.title}</h2>
+            <span className='text-[#7a7d7f]'>8th May 2024</span>
           </div>
         </div>
       </motion.div>
@@ -201,21 +233,12 @@ export default function PatientReview() {
                         </span>
                       </div>
                       <div className='flex flex-col gap-3'>
-                        <p className='text-sm'>
-                          odq - fever, chills , headache, anorexia, cola
-                          collated urine has resolved. He has no dysuria,
-                          frequency of micturation.
-                        </p>
-                        <p className='text-sm'>
-                          Examination He is not pale , anicteric , hydration is
-                          satisfactory chest - clinically clear Abd -soft , flat
-                        </p>
-                        <p className='text-sm'>
-                          imp - clinically stable plan 1. discharge home 2. Tab
-                          Arthemeter Lumifantrin 80/480mg bd for 3 days 3. tab
-                          Paracetamol 1g 6 hrly 3. tab Zincovit 1tb daily for 14
-                          daysPC - no necomplaints
-                        </p>
+                        {JSON.parse(props.review.clinicalSummary).map(
+                          // @ts-ignore
+                          (section, index) => (
+                            <div key={index}>{renderElements(section)}</div>
+                          )
+                        )}
                       </div>
                     </div>
                     <div className='flex flex-col gap-2'>
@@ -225,28 +248,24 @@ export default function PatientReview() {
                           Diagnosis
                         </span>
                       </div>
-                      <div className='flex flex-col gap-3'>
-                        <div className='flex flex-col gap-2 border-b border-[#d0d5e2] pb-2'>
-                          <h4 className='text-sm'>Cold Injury Syndrome</h4>
-                          <div className='flex items-center gap-2'>
-                            <span className='flex items-center justify-center rounded-md border border-[#d0d5e2] px-1 py-0.5 text-xs '>
-                              ICD
-                            </span>
-                            <span className='text-sm'>L502</span>
+                      {props.review.diagnosis.map(
+                        // @ts-ignore
+                        (diagnosis, diagnosisIndex) => (
+                          <div className='flex flex-col gap-3'>
+                            <div className='flex flex-col gap-2 border-b border-[#d0d5e2] pb-2 last:border-none'>
+                              <h4 className='text-sm'>{diagnosis.fullName}</h4>
+                              <div className='flex items-center gap-2'>
+                                <span className='flex items-center justify-center rounded-md border border-[#d0d5e2] px-1 py-0.5 text-xs '>
+                                  ICD
+                                </span>
+                                <span className='text-sm'>
+                                  {diagnosis.fullCode}
+                                </span>
+                              </div>
+                            </div>
                           </div>
-                        </div>
-                        <div className='flex flex-col gap-2 border-b border-[#d0d5e2] pb-2'>
-                          <h4 className='text-sm'>
-                            Urticaria Due To Cold And Heat
-                          </h4>
-                          <div className='flex items-center gap-2'>
-                            <span className='flex items-center justify-center rounded-md border border-[#d0d5e2] px-1 py-0.5 text-xs '>
-                              ICD
-                            </span>
-                            <span className='text-sm'>U202</span>
-                          </div>
-                        </div>
-                      </div>
+                        )
+                      )}
                     </div>
                     <div className='flex flex-col gap-2'>
                       <div className='flex items-center'>
@@ -255,13 +274,14 @@ export default function PatientReview() {
                           Physician Treatment Plan
                         </span>
                       </div>
-                      <div className='flex flex-col gap-3'>
-                        <p className='text-sm'>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit. Suspendisse varius enim in eros elementum
-                          tristique.
-                        </p>
-                      </div>
+                      {JSON.parse(props.review.treatmentPlan).map(
+                        // @ts-ignore
+                        (section, index) => (
+                          <div key={index} className='flex flex-col gap-3'>
+                            <p className='text-sm'>{renderElements(section)}</p>
+                          </div>
+                        )
+                      )}
                     </div>
                   </div>
                 </div>
@@ -308,25 +328,69 @@ export default function PatientReview() {
               <div className='relative h-80 overflow-y-hidden'>
                 <div className='no-scrollbar h-full overflow-y-auto px-1.5 pb-20 pt-3'>
                   <div className='flex flex-col gap-2'>
-                    {'1,2,3,4,5'.split(',').map((val) => {
-                      return (
-                        <div className='flex flex-col gap-2 rounded-md border border-[#d0d5e2] p-1.5'>
-                          <h1 className='truncate text-xs font-medium'>
-                            Tab. Arthemeter Lumifantrin
-                          </h1>
-                          <div className='flex items-center rounded-md bg-[#f6f8fb] p-1.5'>
-                            <p className='text-sm'>
-                              <span className='text-[#027a48]'>80/480 mg </span>{' '}
-                              <span className='text-[#6941c6]'>Oral </span>{' '}
-                              <span className='text-[#b42318]'>BID</span>{' '}
-                              <span className='text-[#b54708]'>
-                                3 of 7 days
-                              </span>
-                            </p>
+                    {
+                      // @ts-ignore
+                      props.review.prescriptions.map((prescription) => {
+                        return (
+                          <div
+                            key={prescription.id}
+                            className='flex flex-col gap-2 rounded-md border border-[#d0d5e2] p-1.5'
+                          >
+                            {
+                              // @ts-ignore
+                              prescription.items.map((prescriptionItem) => (
+                                <>
+                                  <h1 className='truncate text-xs font-medium'>
+                                    {prescriptionItem.name}
+                                  </h1>
+                                  <div className='flex items-center rounded-md bg-[#f6f8fb] p-1.5'>
+                                    <p className='text-sm'>
+                                      <span className='text-[#027a48]'>
+                                        {
+                                          prescriptionItem
+                                            .doctorPrescriptionItemDosage
+                                            .quantity
+                                        }{' '}
+                                        {
+                                          prescriptionItem
+                                            .doctorPrescriptionItemDosage
+                                            .quantityUnit
+                                        }{' '}
+                                      </span>{' '}
+                                      <span className='text-[#6941c6]'>
+                                        {
+                                          prescriptionItem
+                                            .doctorPrescriptionItemDosage.route
+                                        }{' '}
+                                      </span>{' '}
+                                      <span className='text-[#b42318]'>
+                                        {
+                                          prescriptionItem
+                                            .doctorPrescriptionItemDosage
+                                            .frequency
+                                        }
+                                      </span>{' '}
+                                      <span className='text-[#b54708]'>
+                                        {
+                                          prescriptionItem
+                                            .doctorPrescriptionItemDosage
+                                            .duration
+                                        }{' '}
+                                        {
+                                          prescriptionItem
+                                            .doctorPrescriptionItemDosage
+                                            .durationUnit
+                                        }
+                                      </span>
+                                    </p>
+                                  </div>
+                                </>
+                              ))
+                            }
                           </div>
-                        </div>
-                      );
-                    })}
+                        );
+                      })
+                    }
                   </div>
                 </div>
                 <div
