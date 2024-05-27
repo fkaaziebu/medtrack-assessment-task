@@ -1,0 +1,18 @@
+version: '3.9'
+services:
+  medtrack-nurse-dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    restart: always
+    ports:
+      - 5000:3000
+    environment:
+      - NEXT_PUBLIC_API_URL=https://medtrack-mock-api.onrender.com/graphql
+    volumes:
+      - type: bind
+        source: .
+        target: /app
+        
+      - type: volume
+        target: /app/node_modules

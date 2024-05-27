@@ -5,11 +5,6 @@ In other to get started with the project, the following steps below will guide y
 ## Pull project into your local machine
 Run ``git clone repo-url`` to clone this repository into your local environment
 
-## Install dependencies
-Install the dependencies required to startup this application using the command below
-```bash
-npm install
-```
 Here is a list of all dependencies installed
 - clsx
 - framer-motion
@@ -40,12 +35,31 @@ NEXT_PUBLIC_API_URL=https://medtrack-mock-api.onrender.com/graphql
 ```
 
 ## Startup development server
-You are ready to go now. Just run the last command to start viewing the project in a browser
-```code
-PORT=5000 npm run dev
+The frontend application has been containerized, meaning it runs in a container so all you need to do now is to start the container and all dependencies required for the frontend to function will be installed into the container.
+```bash
+sudo ./bin/run.sh
 ```
 
-You can choose to remove the port value of which next.js will simply use the default configured port which is port 3000.
+## Deep dive into what ``Dockerfile.dev`` is doing line by line
+- ``FROM node:21-alpine3.18`` provides a node.js runtime upon which the frontend can run in.
+
+- ``WORKDIR /app`` creates a working directory for the frontend app where all of the frontend files will be placed
+
+- ``COPY package.json ./COPY tsconfig.json ./`` copies package.json and tsconfig.json into the container. These are the only files needed for us to install dependencies for the frontend app.
+
+- ``RUN npm install`` installs all dependencies inside the package.json file
+
+- ``COPY . .`` copies all other files in the frontend working directory into the container working directory
+
+- ``EXPOSE 3000`` exposes the port 3000 inside the container, that the frontend can be assessed from
+
+- ``CMD ["npm", "run", "dev"]`` start the development server
+
+## The docker-compose.yml file
+
+- This file creates the container and passes the environment variables required for the frontend app to run in the container. 
+- It also sets an outside port that we can access the frontend-app from using our browser
+- Also creates volumes and bind-mounts that are mounted into the container for easy development by the developer
 
 ## Available Pages to access
 
