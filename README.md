@@ -39,6 +39,7 @@ The frontend application has been containerized, meaning it runs in a container 
 ```bash
 sudo ./bin/run.sh
 ```
+After starting up development server
 
 ## Deep dive into what ``Dockerfile.dev`` is doing line by line
 - ``FROM node:21-alpine3.18`` provides a node.js runtime upon which the frontend can run in.
@@ -58,7 +59,7 @@ sudo ./bin/run.sh
 ## The docker-compose.yml file
 
 - This file creates the container and passes the environment variables required for the frontend app to run in the container. 
-- It also sets an outside port that we can access the frontend-app from using our browser
+- It also sets an outside port that we can access the frontend-app from using our browser. The external port exposed is ``5000``
 - Also creates volumes and bind-mounts that are mounted into the container for easy development by the developer
 
 ## Available Pages to access
