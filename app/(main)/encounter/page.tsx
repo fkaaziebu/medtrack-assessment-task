@@ -1,4 +1,4 @@
-import Breadcrumb from '@/app/components/Breadcrumb/Breadcrumb';
+import Breadcrumb from '@/app/components/breadcrumb/Breadcrumb';
 
 export default function Home() {
   return (

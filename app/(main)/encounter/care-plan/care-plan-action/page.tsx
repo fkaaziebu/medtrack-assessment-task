@@ -1,4 +1,4 @@
-import Breadcrumb from '@/app/components/Breadcrumb/Breadcrumb';
+import Breadcrumb from '@/app/components/breadcrumb/Breadcrumb';
 import { PatientVitals } from '@/app/components/page/care-plan-action/patient-vitals';
 import { MedicationSheetEmptyState } from '@/app/components/page/care-plan-action/medication-sheet-empty-state';
 import { MedicationSheet } from '@/app/components/page/care-plan-action/medication-sheet';
@@ -6,7 +6,6 @@ import { CarePlanTask } from '@/app/components/page/care-plan-action/care-plan-t
 import { Notes } from '@/app/components/page/care-plan-action/notes';
 
 export default function Home() {
-
   return (
     <div className='flex min-w-full flex-col gap-8 text-gray-900'>
       <div className='flex w-full'>

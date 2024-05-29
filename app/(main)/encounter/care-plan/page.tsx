@@ -1,5 +1,5 @@
 'use client';
-import Breadcrumb from '@/app/components/Breadcrumb/Breadcrumb';
+import Breadcrumb from '@/app/components/breadcrumb/Breadcrumb';
 import PatientReview from '@/app/components/page/care-plan/patient-review';
 import { patientReviewInfo } from '@/lib/actions';
 import { useEffect, useState } from 'react';
