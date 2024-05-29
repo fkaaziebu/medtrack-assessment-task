@@ -5,7 +5,7 @@ In other to get started with the project, the following steps below will guide y
 ## Pull project into your local machine
 Run ``git clone repo-url`` to clone this repository into your local environment
 
-Here is a list of all dependencies installed
+Here is a list of all dependencies to be installed
 - clsx
 - framer-motion
 - graphql-request
@@ -14,7 +14,7 @@ Here is a list of all dependencies installed
 - tailwind-merge
 - zustand
 
-Here is a list of all dev dependencies installed
+Here is a list of all dev dependencies to be installed
 - @types/node
 - @types/react
 - @types/react-dom
@@ -39,7 +39,7 @@ The frontend application has been containerized, meaning it runs in a container 
 ```bash
 sudo ./bin/run.sh
 ```
-After starting up development server
+After starting up development server, the application can then be opened at [`localhost`](http://localhost:5000)
 
 ## Deep dive into what ``Dockerfile.dev`` is doing line by line
 - ``FROM node:21-alpine3.18`` provides a node.js runtime upon which the frontend can run in.
@@ -71,4 +71,26 @@ After starting up development server
 * `/encounter/care-plan` -> care plan page (This is one of the useful pages in this assessment task)
 
 * `/encounter/care-plan/care-plan-action` -> (Care Plan action page, the 2nd useful page)
+
+## Settings
+In case you would want to update the port number on which to run your application, you can do so inside the `docker-compose.yml` file. You can also specify multiple ports if you want.
+
+Here is an example of what I mean:
+
+```code
+version: '3.9'
+services:
+  medtrack-nurse-dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    restart: always
+    ports:
+      - 5000:3000 
+      - 5001:3000
+      - outsidePort: containerPort
+```
+
+
+The port inside the container is always set to `3000`
 
